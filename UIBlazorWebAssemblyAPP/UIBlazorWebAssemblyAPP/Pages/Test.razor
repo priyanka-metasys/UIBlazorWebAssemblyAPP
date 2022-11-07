@@ -1,0 +1,112 @@
+﻿
+<MudAppBar Style="background-color:#EFEFEF;    height: calc(var(--mud-appbar-height) - var(--mud-appbar-height)/2);" Color="Color.Default" Fixed="false" Dense="true" Elevation="0">
+
+    <MudText style="color:#484848;" Edge="Edge.Start" Typo="Typo.subtitle1">GraphXserver</MudText>
+    <MudSpacer />
+
+    <MudIconButton Size="Size.Small" Icon="@Icons.Filled.AccountCircle" Color="Color.Default" />
+</MudAppBar>
+<MudDivider Light="false" />
+
+<MudAppBar Style="background-color:#E8E8E8;height: calc(var(--mud-appbar-height) - var(--mud-appbar-height)/2);" Color="Color.Default" Fixed="false" Dense="true" Elevation="0">
+    <MudIconButton Class="pa-1" Size="Size.Small" Icon="@Icons.Filled.Menu" Color="Color.Default" Edge="Edge.Start" />
+
+    <MudContainer MaxWidth="MaxWidth.Small">
+        <MudPaper Style="background-color:white;" Elevation="0" Height="30px" Width="100%" Square="true" Class="mud-theme-Default d-flex justify-space-between flex-grow-1 gap-4">
+            <MudBreadcrumbs Class="pa-1" style="font-size:14px;" Items="_items"></MudBreadcrumbs>
+            <MudIconButton Class="pa-1" Size="Size.Small" Icon="@Icons.Filled.Bookmark" Color="Color.Default" />
+        </MudPaper>
+    </MudContainer>
+    <MudIconButton Class="pa-1" Size="Size.Small" Icon="@Icons.Filled.SortByAlpha" Color="Color.Default" />
+    <MudIconButton Class="pa-1" Size="Size.Small" Icon="@Icons.Filled.FilterList" Color="Color.Default" />
+    <MudIconButton Class="pa-1" Size="Size.Small" Icon="@Icons.Filled.Search" Color="Color.Default" />
+    <MudIconButton Class="pa-1" Size="Size.Small" Icon="@Icons.Filled.ViewList" Color="Color.Default" />
+
+    <MudIconButton Class="pa-1" Size="Size.Small" Icon="@Icons.Filled.Tune" Color="Color.Default" />
+
+    <MudIconButton Class="pa-1" Size="Size.Small" Icon="@Icons.Filled.MoreVert" Color="Color.Default" />
+</MudAppBar>
+<MudAppBar Style="background-color:#EFEFEF;    height: calc(var(--mud-appbar-height) - var(--mud-appbar-height)/2);" Color="Color.Default" Fixed="false" Dense="true" Elevation="0">
+
+    <MudText style="color:#484848;" Edge="Edge.Start" Typo="Typo.h6">Cherry Creek</MudText>
+    <MudIconButton Size="Size.Small" Icon="@Icons.Filled.ArrowDropDown" Color="Color.Default" />
+
+    <MudSpacer />
+
+
+</MudAppBar>
+
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Link 1", href: "#"),
+        new BreadcrumbItem("Link 2", href: null)
+    };
+}
+<style>
+    .firstTab {
+        margin-top: 10px
+    }
+
+        .firstTab .mud-tabs-toolbar .mud-tabs-toolbar-inner {
+            min-height: auto;
+            padding: 5px 0px;
+            border-top: 1px solid #dedede;
+            border-bottom: 1px solid #dedede;
+        }
+
+        .firstTab .mud-tabs.mud-tabs-rounded .mud-tabs-toolbar {
+            background: #fbfbfb
+        }
+
+    .secondTab .mud-tabs-toolbar .mud-tabs-toolbar-inner {
+        background: #fff;
+        padding: 5px 0px 0px 0px;
+    }
+
+    .firstTab .secondTab .mud-tab.mud-tab-active {
+        background: transparent;
+        color: gray;
+    }
+
+    .firstTab .mud-tab.mud-tab-active {
+        background: gray;
+        color: #fff;
+        padding: 2px 12px;
+        border-radius: 4px;
+    }
+
+    .secondTab .mud-tab-slider.mud-tab-slider-horizontal {
+        background: gray !important;
+    }
+
+    .firstTab .mud-tab-slider.mud-tab-slider-horizontal {
+        background: transparent;
+    }
+
+    .mud-tab {
+        width: auto;
+        min-width: auto;
+        display: inline-flex;
+        padding: 3px 12px;
+        min-height: auto;
+        text-transform: capitalize;
+    }
+
+    .mud-tabs.mud-tabs-rounded .mud-tabs-panels {
+        padding: 0 !important
+    }
+
+    .secondTab.mud-tabs.mud-tabs-rounded .mud-tabs-panels {
+        padding: 24px !important
+    }
+</style>
+
+
+
+
+
+
+

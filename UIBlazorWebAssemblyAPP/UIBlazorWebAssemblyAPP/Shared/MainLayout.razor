@@ -1,0 +1,156 @@
+﻿@inherits LayoutComponentBase
+
+<div class="">
+    <MudAppBar Style="background-color:#D3D3D3;    height: calc(var(--mud-appbar-height) - var(--mud-appbar-height)/2);" Color="Color.Default" Fixed="false" Dense="true" Elevation="0">
+
+        <MudText style="color:#5E5E5E; font-size:14px; font-weight:500" Edge="Edge.Start" Typo="Typo.subtitle1">GraphXserver</MudText>
+    <MudSpacer />    
+    <MudIconButton Size="Size.Small" Icon="@Icons.Filled.AccountCircle" Color="Color.Default" />
+</MudAppBar>
+    <MudDivider style="background-color:#A0A0A0;opacity: 1;" />
+   @* <div class="">
+        <NavMenu />
+    </div>*@
+    <MudLayout>
+        <MudDrawer @bind-Open="@open" Breakpoint="@breakpoint" PreserveOpenState="@preserveOpenState" Elevation="1" Class="">
+            <MudNavMenu>
+                <MudNavLink Match="NavLinkMatch.All" Href="" >Dashboard</MudNavLink>
+                <MudNavGroup Title="Accounts" Expanded="true">
+                    <MudNavLink Href="/users">Users</MudNavLink>
+                    <MudNavLink Href="/security">Security</MudNavLink>
+                </MudNavGroup>
+                <MudNavLink Href="counter" >Active</MudNavLink>
+                <MudNavLink Href="serversidedata" >Printavo</MudNavLink>
+                <MudNavLink Href="timer" >Tasks</MudNavLink>
+                <MudNavLink Href="cards" >Users</MudNavLink>
+                <MudNavLink Href="table" >Settings</MudNavLink>
+            </MudNavMenu>
+        </MudDrawer>
+        <MudAppBar Style="background-color:#E5E5E5;height: calc(var(--mud-appbar-height) - var(--mud-appbar-height)/2);" Color="Color.Default" Fixed="false" Dense="true" Elevation="0">
+            @*<MudIconButton  Icon="@Icons.Filled.Menu" Color="Color.Default" Edge="Edge.Start" />*@
+            <MudIconButton Class="pa-1 pl-2" Size="Size.Small" Icon="@Icons.Filled.Menu" Color="Color.Dark" Style="font-size:18px" Edge="Edge.Start" OnClick="@ToggleDrawer" />
+            <MudContainer>
+                <MudPaper Style="background-color:white;" Elevation="0" Height="30px" Width="100%" Square="true" Class="mud-theme-Default d-flex justify-space-between flex-grow-1 gap-4">
+                    <MudBreadcrumbs Class="pa-1 mud-container-maxwidth-lg" style="font-size:14px; color:#1A1A1A" Items="_items"></MudBreadcrumbs>
+                    <MudIconButton Class="pa-1" Size="Size.Small" Icon="@Icons.Filled.Bookmark" Color="Color.Default" />
+                </MudPaper>
+            </MudContainer>
+            <MudIconButton Class="pa-1" Size="Size.Small" Icon="@Icons.Filled.SortByAlpha" Color="Color.Default" />
+            <MudIconButton Class="pa-1" Size="Size.Small" Icon="@Icons.Filled.FilterList" Color="Color.Default" />
+            <MudIconButton Class="pa-1" Size="Size.Small" Icon="@Icons.Filled.Search" Color="Color.Default" />
+            <MudIconButton Class="pa-1" Size="Size.Small" Icon="@Icons.Filled.ViewList" Color="Color.Default" />
+
+            <MudIconButton Class="pa-1" Size="Size.Small" Icon="@Icons.Filled.Tune" Color="Color.Default" />
+
+            <MudIconButton Class="pa-1" Size="Size.Small" Icon="@Icons.Filled.MoreVert" Color="Color.Default" />
+        </MudAppBar>
+        <MudDivider style="background-color:#A0A0A0;opacity: 1;" />
+        <MudAppBar Style="background-color:#E5E5E5;    height:46px;" Color="Color.Default" Fixed="false" Dense="true" Elevation="0">
+
+            <MudText style="color:#484848;font-size: 32px;font-weight:500" Edge="Edge.Start">Accounts</MudText>
+            <MudIconButton Size="Size.Large" Icon="@Icons.Filled.ArrowDropDown" Color="Color.Default" />
+
+            <MudSpacer />
+
+
+        </MudAppBar>
+        <MudDivider style="background-color:#D3D3D3; opacity: 1;" />
+    
+  
+      @*  <div class="top-row px-4">
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+        </div>*@
+
+        
+            @Body
+      
+    
+    </MudLayout>
+    @code {
+
+        bool open = false;
+        bool dense = false;
+        bool preserveOpenState = false;
+        Breakpoint breakpoint = Breakpoint.Lg;
+
+
+        void ToggleDrawer()
+        {
+            open = !open;
+        }
+
+        private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+    new BreadcrumbItem("Home", href: "#"),
+    new BreadcrumbItem("Link 1", href: "#"),
+    new BreadcrumbItem("Link 2", href: null)
+    };
+    }
+    <style>
+        .mud-toolbar-gutters {
+            padding-left: 16px!important;
+            padding-right: 16px!important;
+        }
+
+        .mud-tab {
+            min-width: auto !important;
+            padding: 4px 16px !important;
+            min-height: 37px !important;
+            text-transform: capitalize !important;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .mud-tabs-toolbar .mud-tabs-toolbar-inner {
+            min-height: 37px;
+        }
+
+        .mud-tab.mud-tab-active {
+            color: #5E5E5E;
+            font-weight: 500;
+        }
+
+        .mud-tab-slider {
+            position: absolute;
+            background: #5E5E5E;
+        }
+
+        .mud-breadcrumb-item > a {
+            font-size: 16px;
+            color: #1A1A1A;
+        }
+
+        .mud-table-cell {
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .mud-table-dense * .mud-table-row .mud-table-cell {
+            padding: 5px 24px 5px 16px;
+            padding-inline-start: 16px;
+            padding-inline-end: 24px;
+        }
+
+        .mud-table-sticky-header * .mud-table-root .mud-table-head * .mud-table-cell {
+            background-color: #F4F4F4;
+            position: sticky;
+            z-index: 2;
+            top: 0;
+            padding: 3px 24px 3px 16px;
+            border-top: 1px solid #D3D3D3;
+        }
+
+        .mud-chip.mud-chip-size-medium {
+            height: 22px;
+            font-size: 14px;
+            border-radius: 16px;
+        }
+
+        .mud-tabs-toolbar-content {
+            border-bottom: 1px solid #cecece;
+        }
+    </style>
+</div>
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
